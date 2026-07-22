@@ -24,7 +24,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: 80px;
 }
 
@@ -848,15 +847,6 @@ img {
     z-index: 0;
 }
 
-/* ===== ABOUT IMAGE ===== */
-.about-image {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: var(--radius);
-    display: block;
-}
-
 /* ===== INNOVATION IMAGE ===== */
 .innovation-image {
     width: 100%;
@@ -921,6 +911,13 @@ img {
     opacity: 1;
 }
 
+@media (hover: none) {
+    .portfolio-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(26, 42, 74, 0.85) 0%, transparent 50%);
+    }
+}
+
 .portfolio-info h3 {
     color: #fff;
     font-size: 1.15rem;
@@ -964,7 +961,7 @@ img {
 
 /* ===== PROCESS ===== */
 .process {
-    background: #fff;
+    background: var(--bg-light);
 }
 
 .process-steps {
@@ -1148,6 +1145,21 @@ img {
     transform: scale(1.2);
 }
 
+/* ===== CONTACT MAP ===== */
+.contact-map {
+    margin-top: 40px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    display: block;
+}
+
 /* ===== CTA BANNER BACKGROUND ===== */
 .cta-banner-bg {
     position: absolute;
@@ -1161,6 +1173,24 @@ img {
 .cta-banner .container {
     position: relative;
     z-index: 1;
+}
+
+/* ===== KEYBOARD FOCUS ===== */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 /* ===== ANIMATIONS ===== */

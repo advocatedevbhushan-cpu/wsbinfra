@@ -1,34 +1,43 @@
+/* ===== DYNAMIC YEAR ===== */
+document.getElementById('year').textContent = new Date().getFullYear();
+
 /* ===== NAVBAR SCROLL EFFECT ===== */
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Scroll listener
+let ticking = false;
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            ticking = false;
+        });
+        ticking = true;
     }
-
-    // Update active nav link based on scroll position
-    const sections = document.querySelectorAll('section[id]');
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
 });
 
 // Hamburger toggle
@@ -62,7 +71,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all animated elements
 document.querySelectorAll('.animate-up, .animate-left, .animate-right').forEach(el => {
     observer.observe(el);
 });
@@ -85,55 +93,57 @@ document.querySelectorAll('.stat-number').forEach(el => {
 
 function animateCounter(element, target) {
     let current = 0;
-    const increment = Math.ceil(target / 60);
-    const interval = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(interval);
-        }
+    const duration = 1500;
+    const startTime = performance.now();
+
+    function step(timestamp) {
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+
         element.textContent = current + (target === 98 ? '%' : '+');
-    }, 25);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
 }
 
 /* ===== CONTACT FORM ===== */
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
 
-    // Simple validation
     if (!data.name || !data.email || !data.message) {
         showFormMessage('Please fill in all required fields.', 'error');
         return;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
         showFormMessage('Please enter a valid email address.', 'error');
         return;
     }
 
-    // Simulate sending
     const submitBtn = contactForm.querySelector('.btn-submit');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        showFormMessage('Thank you! We\'ll get back to you shortly.', 'success');
-        contactForm.reset();
-    }, 1500);
+    showFormMessage('Thank you! We\'ll get back to you shortly.', 'success');
+    contactForm.reset();
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
 });
 
 function showFormMessage(msg, type) {
-    // Remove existing message
     const existing = document.querySelector('.form-message');
     if (existing) existing.remove();
 
@@ -161,7 +171,6 @@ function showFormMessage(msg, type) {
 
     contactForm.appendChild(div);
 
-    // Auto-remove after 5s
     setTimeout(() => {
         if (div.parentNode) {
             div.style.opacity = '0';
@@ -175,7 +184,9 @@ function showFormMessage(msg, type) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
@@ -215,8 +226,16 @@ dots.forEach(dot => {
     });
 });
 
-// Auto-advance every 5s
 testimonialInterval = setInterval(nextTestimonial, 5000);
+
+// Pause on hover
+testimonialSlider.addEventListener('mouseenter', () => {
+    clearInterval(testimonialInterval);
+});
+
+testimonialSlider.addEventListener('mouseleave', () => {
+    testimonialInterval = setInterval(nextTestimonial, 5000);
+});
 
 /* ===== ADD NO-SCROLL STYLE ===== */
 const style = document.createElement('style');
@@ -229,4 +248,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-

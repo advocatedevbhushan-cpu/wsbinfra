@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="WSB Infra & Crafts - Pioneering PEB construction technology for a sustainable future. We blend advanced construction technologies with impeccable craftsmanship.">
     <title>WSB Infra & Crafts | Building the Future with PEB Excellence</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,8 +13,8 @@
     <!-- ===== NAVBAR ===== -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon"><i class="fas fa-hard-hat"></i></span>
+            <a href="#home" class="logo">
+                <span class="logo-icon" aria-hidden="true"><i class="fas fa-hard-hat"></i></span>
                 <div class="logo-text">
                     <span class="logo-title">WSB</span>
                     <span class="logo-subtitle">Infra &amp; Crafts</span>
@@ -503,6 +504,9 @@
                     </button>
                 </form>
             </div>
+            <div class="contact-map animate-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.966!2d-73.987!3d40.748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzUyLjgiTiA3M8KwNTknMTMuMiJX!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Office Location"></iframe>
+            </div>
         </div>
     </section>
 
@@ -556,7 +560,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 WSB Infra &amp; Crafts. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> WSB Infra &amp; Crafts. All rights reserved.</p>
             </div>
         </div>
     </footer>
