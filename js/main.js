@@ -265,7 +265,7 @@
     waBtn = document.createElement('a');
     waBtn.id = 'whatsappBtn';
     waBtn.className = 'whatsapp-btn';
-    waBtn.href = 'https://wa.me/919876543210?text=Hi%20WSB%20Infra%2C%20I%27d%20like%20to%20discuss%20a%20project.';
+    waBtn.href = 'https://wa.me/918707552183?text=Hi%20WSB%20Infra%2C%20I%27d%20like%20to%20discuss%20a%20project.';
     waBtn.target = '_blank';
     waBtn.rel = 'noopener';
     waBtn.setAttribute('aria-label', 'Chat on WhatsApp');
