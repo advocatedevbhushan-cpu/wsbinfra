@@ -105,34 +105,7 @@
   }, { passive: true });
 
   /* =============================================================
-     5.  DARK MODE
-     ============================================================= */
-  var darkToggle = document.getElementById('darkToggle');
-  var darkIcon = darkToggle ? darkToggle.querySelector('i') : null;
-  var htmlRoot = document.documentElement;
-
-  function setDark(dark) {
-    if (dark) {
-      htmlRoot.setAttribute('data-theme', 'dark');
-      if (darkIcon) { darkIcon.className = 'fas fa-sun'; }
-      LS.set('theme', 'dark');
-    } else {
-      htmlRoot.removeAttribute('data-theme');
-      if (darkIcon) { darkIcon.className = 'fas fa-moon'; }
-      LS.set('theme', 'light');
-    }
-  }
-
-  if (darkToggle) {
-    var saved = LS.get('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
-      setDark(true);
-    }
-    darkToggle.addEventListener('click', function () { setDark(htmlRoot.getAttribute('data-theme') !== 'dark'); });
-  }
-
-  /* =============================================================
-     6.  BACK TO TOP
+     5.  BACK TO TOP
      ============================================================= */
   var backToTop = document.getElementById('backToTop');
   if (!backToTop) {
@@ -285,7 +258,23 @@
   }
 
   /* =============================================================
-     11. COOKIE CONSENT
+     11. WHATSAPP FLOATING BUTTON
+     ============================================================= */
+  var waBtn = document.getElementById('whatsappBtn');
+  if (!waBtn) {
+    waBtn = document.createElement('a');
+    waBtn.id = 'whatsappBtn';
+    waBtn.className = 'whatsapp-btn';
+    waBtn.href = 'https://wa.me/919876543210?text=Hi%20WSB%20Infra%2C%20I%27d%20like%20to%20discuss%20a%20project.';
+    waBtn.target = '_blank';
+    waBtn.rel = 'noopener';
+    waBtn.setAttribute('aria-label', 'Chat on WhatsApp');
+    waBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+    document.body.appendChild(waBtn);
+  }
+
+  /* =============================================================
+     12. COOKIE CONSENT
      ============================================================= */
   if (!LS.get('cookieConsent')) {
     var banner = document.createElement('div');

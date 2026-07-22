@@ -1387,6 +1387,139 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
+/* ----- WhatsApp Floating Button ----- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px; left: 30px;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+  z-index: 999;
+  transition: all var(--transition);
+  animation: waPulse 2s ease-in-out infinite;
+  text-decoration: none;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  background: #20bd5a;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+}
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 24px rgba(37,211,102,0.7); }
+}
+
+/* ----- Client Logos ----- */
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px 48px;
+}
+.client-logo-item {
+  height: 48px;
+  opacity: 0.5;
+  filter: grayscale(1);
+  transition: all var(--transition);
+}
+.client-logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+.client-logo-item img {
+  height: 100%;
+  width: auto;
+}
+
+/* ----- Blog / News Cards ----- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+.blog-card {
+  background: var(--text-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.blog-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+.blog-card-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.06);
+}
+.blog-card-body {
+  padding: 20px;
+}
+.blog-card-date {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.blog-card-body h3 {
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.blog-card-body p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.blog-card-body .service-link {
+  font-size: 0.85rem;
+}
+
+/* ----- Service Coverage Map ----- */
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.coverage-state {
+  background: var(--text-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--primary);
+  transition: all var(--transition);
+}
+.coverage-state:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.coverage-state i {
+  color: var(--accent);
+  margin-right: 6px;
+  font-size: 0.75rem;
+}
+
 /* ----- Back to Top ----- */
 #backToTop {
   position: fixed;
@@ -1761,57 +1894,6 @@ ul { list-style: none; }
 ::-webkit-scrollbar-track { background: var(--bg-light); }
 ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-
-/* ===============================================================
-   DARK MODE
-   =============================================================== */
-[data-theme="dark"] {
-  --primary: #0d1b2a;
-  --primary-light: #1b2838;
-  --primary-dark: #070f1a;
-  --bg-light: #111827;
-  --bg-dark: #070f1a;
-  --text-dark: #e5e7eb;
-  --text-muted: #9ca3af;
-  --text-light: #f9fafb;
-  --border-light: #1f2937;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
-}
-[data-theme="dark"] .service-card,
-[data-theme="dark"] .benefit-item,
-[data-theme="dark"] .stat-card,
-[data-theme="dark"] .eng-card,
-[data-theme="dark"] .project-card,
-[data-theme="dark"] .portfolio-item,
-[data-theme="dark"] .contact-form,
-[data-theme="dark"] .faq-item,
-[data-theme="dark"] .testimonial-card,
-[data-theme="dark"] .team-card,
-[data-theme="dark"] .job-card,
-[data-theme="dark"] .cert-item,
-[data-theme="dark"] .cert-badge {
-  background: #1a2332;
-}
-[data-theme="dark"] .section-gray {
-  background: #0f1724;
-}
-[data-theme="dark"] .filter-btn {
-  background: #1a2332;
-  color: var(--text-dark);
-  border-color: #2d3a4f;
-}
-[data-theme="dark"] .form-group input,
-[data-theme="dark"] .form-group textarea,
-[data-theme="dark"] .form-group select {
-  background: #1a2332;
-  border-color: #2d3a4f;
-  color: var(--text-dark);
-}
-[data-theme="dark"] #preloader {
-  background: #111827;
-}
 
 /* ===============================================================
    ACCESSIBILITY & PRINT
