@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WSB Infra & Crafts project portfolio - Pre-engineered buildings, government infrastructure, steel fabrication projects across India.">
-    <title>Projects | WSB Infra & Crafts</title>
+    <title>Our Projects | WSB Infra &amp; Crafts</title>
+    <meta name="description" content="WSB Infra & Crafts project portfolio — 150+ completed projects in PEB, government infrastructure, steel fabrication, and industrial construction across India.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Our Projects | WSB Infra & Crafts">
+    <meta property="og:description" content="View our portfolio of PEB, government, and industrial infrastructure projects.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://wsbinfra.com/projects.html">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo"><i class="fas fa-hard-hat"></i> WSB <span>Infra &amp; Crafts</span></a>
+
+<div id="preloader"><div class="preloader__spinner"></div><div class="preloader__text">Loading...</div></div>
+
+<header class="navbar">
+    <div class="container">
+        <a href="index.html" class="logo"><i class="fas fa-hard-hat"></i> WSB <span>Infra &amp; Crafts</span></a>
+        <div style="display:flex;align-items:center;gap:4px">
+            <button id="darkToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
             <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
             <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
@@ -25,132 +36,78 @@
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
-    </header>
+    </div>
+</header>
 
-    <section class="page-hero">
-        <div class="page-hero-bg" style="background-image:url('images/portfolio-1.jpg')"></div>
-        <div class="container">
-            <div class="breadcrumb"><a href="index.html">Home</a> / <span>Our Projects</span></div>
-            <h1>Our <span>Projects</span></h1>
-            <p>A showcase of our completed infrastructure projects across PEB, government, and industrial sectors.</p>
+<section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('images/portfolio-1.jpg')" data-parallax="0.15"></div>
+    <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a> / <span>Our Projects</span></div>
+        <h1>Our <span>Projects</span></h1>
+        <p>A showcase of our completed infrastructure projects across PEB, government, and industrial sectors — 150+ and counting.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="portfolio-filters anim-up">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="peb">PEB</button>
+            <button class="filter-btn" data-filter="government">Government</button>
+            <button class="filter-btn" data-filter="industrial">Industrial</button>
+            <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
         </div>
-    </section>
 
-    <section class="section">
-        <div class="container">
+        <div class="portfolio-grid" data-stagger="0.08">
+            <div class="portfolio-item anim-scale" data-category="peb"><img src="images/portfolio-1.jpg" alt="Logistics warehouse PEB structure" loading="lazy"><div class="portfolio-overlay"><h4>Logistics Warehouse</h4><p>50,000 sq.ft PEB warehouse with 10T crane system • 8 weeks delivery</p><span class="project-card-tag">PEB</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="government"><img src="images/portfolio-2.jpg" alt="Government school building complex" loading="lazy"><div class="portfolio-overlay"><h4>Government School Complex</h4><p>Multi-block school building with 40 classrooms and auditorium • CPWD project</p><span class="project-card-tag">Government</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="industrial"><img src="images/portfolio-3.jpg" alt="Automobile manufacturing shed" loading="lazy"><div class="portfolio-overlay"><h4>Automobile Manufacturing Shed</h4><p>120,000 sq.ft industrial shed with 25T EOT cranes and mezzanine offices</p><span class="project-card-tag">Industrial</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="peb"><img src="images/about.jpg" alt="Aircraft hangar structure" loading="lazy"><div class="portfolio-overlay"><h4>Aircraft Hangar</h4><p>90m clear-span hangar for wide-body aircraft maintenance and servicing</p><span class="project-card-tag">PEB</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="infrastructure"><img src="images/innovation.jpg" alt="Rural steel bridge construction" loading="lazy"><div class="portfolio-overlay"><h4>Rural Steel Bridge</h4><p>150m span steel bridge with approach roads connecting remote villages</p><span class="project-card-tag">Infrastructure</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="government"><img src="images/cta-bg.jpg" alt="Community health center" loading="lazy"><div class="portfolio-overlay"><h4>Primary Health Center</h4><p>10-bed PHC building with OPD, diagnostic wing, and pharmacy</p><span class="project-card-tag">Government</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="industrial"><img src="images/process-fabricate.jpg" alt="Transmission tower fabrication" loading="lazy"><div class="portfolio-overlay"><h4>Transmission Tower Fabrication</h4><p>500 MT fabricated steel for 132kV power transmission towers</p><span class="project-card-tag">Industrial</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="peb"><img src="images/process-design.jpg" alt="Cold storage PEB facility" loading="lazy"><div class="portfolio-overlay"><h4>Cold Storage Facility</h4><p>Insulated PEB structure with PUF panels, 10,000 MT capacity</p><span class="project-card-tag">PEB</span></div></div>
+            <div class="portfolio-item anim-scale" data-category="infrastructure"><img src="images/process-erect.jpg" alt="Rural electrification project" loading="lazy"><div class="portfolio-overlay"><h4>Rural Electrification</h4><p>50-village electrification with distribution network and transformer stations</p><span class="project-card-tag">Infrastructure</span></div></div>
+        </div>
+    </div>
+</section>
 
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="peb">PEB</button>
-                <button class="filter-btn" data-filter="government">Government</button>
-                <button class="filter-btn" data-filter="industrial">Industrial</button>
-                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+<section class="section section-dark text-center">
+    <div class="container">
+        <div class="section-header anim-up">
+            <h2 class="section-title">Want to Discuss a Similar Project?</h2>
+            <p class="section-subtitle">Contact our team to discuss your project requirements and get a free quotation.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary anim-scale"><i class="fas fa-arrow-right"></i> Get in Touch</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo"><i class="fas fa-hard-hat"></i> WSB <span>Infra &amp; Crafts</span></div>
+                <p>Multi-specialty EPC company delivering pre-engineered buildings, government infrastructure, and engineering services with ISO 9001:2015 certified quality.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
-
-            <div class="portfolio-grid">
-
-                <div class="portfolio-item" data-category="peb">
-                    <img src="images/portfolio-1.jpg" alt="Warehouse PEB structure">
-                    <div class="portfolio-overlay">
-                        <h4>Logistics Warehouse</h4>
-                        <p>50,000 sq.ft PEB warehouse with crane system • 8 weeks delivery</p>
-                        <span class="project-card-tag">PEB</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="government">
-                    <img src="images/portfolio-2.jpg" alt="Government school building">
-                    <div class="portfolio-overlay">
-                        <h4>Government School Complex</h4>
-                        <p>Multi-block school building with 40 classrooms • CPWD project</p>
-                        <span class="project-card-tag">Government</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="industrial">
-                    <img src="images/portfolio-3.jpg" alt="Industrial shed">
-                    <div class="portfolio-overlay">
-                        <h4>Automobile Manufacturing Shed</h4>
-                        <p>120,000 sq.ft industrial shed with 25T EOT cranes</p>
-                        <span class="project-card-tag">Industrial</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="peb">
-                    <img src="images/about.jpg" alt="Aircraft hangar">
-                    <div class="portfolio-overlay">
-                        <h4>Aircraft Hangar</h4>
-                        <p>Clear-span hangar for wide-body aircraft maintenance</p>
-                        <span class="project-card-tag">PEB</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="infrastructure">
-                    <img src="images/innovation.jpg" alt="Bridge project">
-                    <div class="portfolio-overlay">
-                        <h4>Rural Bridge Construction</h4>
-                        <p>150m span steel bridge connecting remote villages</p>
-                        <span class="project-card-tag">Infrastructure</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="government">
-                    <img src="images/cta-bg.jpg" alt="Community health center">
-                    <div class="portfolio-overlay">
-                        <h4>Primary Health Center</h4>
-                        <p>10-bed PHC building with OPD and diagnostic wing</p>
-                        <span class="project-card-tag">Government</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="industrial">
-                    <img src="images/process-fabricate.jpg" alt="Steel fabrication project">
-                    <div class="portfolio-overlay">
-                        <h4>Transmission Tower Fabrication</h4>
-                        <p>500 MT of fabricated steel for power transmission towers</p>
-                        <span class="project-card-tag">Industrial</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="peb">
-                    <img src="images/process-design.jpg" alt="Cold storage facility">
-                    <div class="portfolio-overlay">
-                        <h4>Cold Storage Facility</h4>
-                        <p>Insulated PEB structure with 10,000 MT capacity</p>
-                        <span class="project-card-tag">PEB</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="infrastructure">
-                    <img src="images/process-erect.jpg" alt="Rural electrification">
-                    <div class="portfolio-overlay">
-                        <h4>Rural Electrification Project</h4>
-                        <p>50 village electrification with distribution network</p>
-                        <span class="project-card-tag">Infrastructure</span>
-                    </div>
-                </div>
-
-            </div>
+            <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services/peb.html">PEB Solutions</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="footer-links"><h4>Our Services</h4><ul><li><a href="services/peb.html">Pre-Engineered Buildings</a></li><li><a href="services/government.html">Government Projects</a></li><li><a href="services/engineering.html">Engineering Services</a></li><li><a href="services/manufacturing.html">Steel Fabrication</a></li></ul></div>
+            <ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Survey No. 45, Industrial Estate<br>Gachibowli, Hyderabad – 500032<br>Telangana, India</span></li>
+                <li><i class="fas fa-phone"></i><span>+91 40 4123 4567<br>+91 98765 43210</span></li>
+                <li><i class="fas fa-envelope"></i><span>info@wsbinfra.com<br>projects@wsbinfra.com</span></li>
+                <li><i class="fas fa-clock"></i><span>Mon – Sat: 9:00 AM – 6:00 PM</span></li>
+            </ul>
         </div>
-    </section>
+        <div class="footer-bottom"><p>&copy; <span id="year"></span> WSB Infra &amp; Crafts. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div>
+    </div>
+</footer>
 
-    <section class="section section-dark text-center">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Want to Discuss a Similar Project?</h2>
-                <p class="section-subtitle">Contact our team to discuss your project requirements.</p>
-            </div>
-            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid"><div class="footer-brand"><div class="logo"><i class="fas fa-hard-hat"></i> WSB <span>Infra &amp; Crafts</span></div><p>Multi-specialty EPC company delivering pre-engineered buildings, government infrastructure, and engineering services with ISO-certified quality.</p><div class="footer-social"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></div></div><div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services/peb.html">PEB Solutions</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-links"><h4>Our Services</h4><ul><li><a href="services/peb.html">Pre-Engineered Buildings</a></li><li><a href="services/government.html">Government Projects</a></li><li><a href="services/engineering.html">Engineering Services</a></li><li><a href="services/manufacturing.html">Steel Fabrication</a></li></ul></div><ul class="footer-contact"><li><i class="fas fa-map-marker-alt"></i><span>123 Industrial Area, Your City – 000001</span></li><li><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></li><li><i class="fas fa-envelope"></i><span>info@wsbinfra.com</span></li></ul></div>
-            <div class="footer-bottom"><p>&copy; <span id="year"></span> WSB Infra &amp; Crafts. All rights reserved.</p></div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
