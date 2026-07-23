@@ -39,14 +39,22 @@
      ============================================================= */
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navLinks');
-  const navLinks = $$('.nav-links a');
+  const navLinks = $$('.nav-links > a, .dropdown__toggle');
 
-  /* Highlight active page */
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  /* Highlight active page using full URL match to avoid cross-directory conflicts */
+  var currentUrl = window.location.href.replace(/\/$/, '');
   navLinks.forEach(function (a) {
-    var href = a.getAttribute('href').split('/').pop();
-    if (href === currentPath) a.classList.add('active');
+    var href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    var resolvedUrl = new URL(href, currentUrl).href.replace(/\/$/, '');
+    if (resolvedUrl === currentUrl) { a.classList.add('active'); }
   });
+  /* Directory-based highlighting for sub-pages */
+  var currentPath = window.location.pathname;
+  if (currentPath.indexOf('/products/') !== -1) {
+    var prodToggle = document.querySelector('.dropdown > .dropdown__toggle');
+    if (prodToggle && !prodToggle.classList.contains('active')) prodToggle.classList.add('active');
+  }
 
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', function () {
@@ -71,6 +79,25 @@
       }
     });
   }
+
+  /* Dropdown toggle for mobile */
+  $$('.dropdown__toggle').forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth <= 992) {
+        e.preventDefault();
+        var dd = toggle.closest('.dropdown');
+        var isOpen = dd.classList.contains('dropdown--open');
+        $$('.dropdown--open').forEach(function (o) { o.classList.remove('dropdown--open'); });
+        if (!isOpen) dd.classList.add('dropdown--open');
+      }
+    });
+  });
+  /* Close dropdowns when clicking outside */
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.dropdown')) {
+      $$('.dropdown--open').forEach(function (o) { o.classList.remove('dropdown--open'); });
+    }
+  });
 
   /* Navbar shrink on scroll */
   var tickingScroll = false;
